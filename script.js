@@ -123,20 +123,27 @@ startDotField();
 const archiveItems = Array.from(document.querySelectorAll(".archive-item"));
 const archiveButton = document.querySelector("[data-load-more]");
 const archiveFilters = Array.from(document.querySelectorAll("[data-filter]"));
+const archiveSearch = document.querySelector("[data-archive-search]");
 
 if (archiveItems.length) {
-  const batchSize = 9;
-  let visibleCount = 9;
+  const batchSize = 12;
+  let visibleCount = 12;
   let activeFilter = "all";
 
+  const getItemText = (item) => [
+    item.textContent || "",
+    Object.values(item.dataset).join(" "),
+    item.getAttribute("href") || "",
+  ].join(" ").toLowerCase();
+
   const getFilteredItems = () => {
-    if (activeFilter === "all") {
-      return archiveItems;
-    }
+    const searchTerm = archiveSearch ? archiveSearch.value.trim().toLowerCase() : "";
 
     return archiveItems.filter((item) => {
       const tags = (item.dataset.tags || "").split(/\s+/);
-      return tags.includes(activeFilter);
+      const matchesFilter = activeFilter === "all" || tags.includes(activeFilter);
+      const matchesSearch = !searchTerm || getItemText(item).includes(searchTerm);
+      return matchesFilter && matchesSearch;
     });
   };
 
@@ -168,6 +175,13 @@ if (archiveItems.length) {
       renderArchive();
     });
   });
+
+  if (archiveSearch) {
+    archiveSearch.addEventListener("input", () => {
+      visibleCount = batchSize;
+      renderArchive();
+    });
+  }
 
   if (archiveButton) {
     archiveButton.addEventListener("click", () => {
