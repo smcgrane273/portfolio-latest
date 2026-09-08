@@ -2610,6 +2610,13 @@ strong {
   opacity: 0.9;
 }
 
+/* Match the Mad River / Ring Set thumbnails with a minimal centered crop. */
+.archive-grid--unified .archive-item--landscape-pair .archive-frame img {
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  object-position: center;
+}
+
 .archive-grid--unified .archive-item--placeholder .archive-frame img,
 .archive-grid--unified .archive-item:not(.archive-item--asset) .archive-frame img {
   filter: grayscale(0.45) contrast(0.86) brightness(1.08);

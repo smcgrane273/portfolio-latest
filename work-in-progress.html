@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>sophie modigliani-mcgrane | Work in progress</title>
+    <link rel="stylesheet" href="styles.css?v=2026-09-08-notebook" />
+    <link rel="stylesheet" href="work-in-progress.css?v=2026-09-08-notebook" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand" href="index.html">sophie modigliani-mcgrane</a>
+        <nav class="nav" aria-label="Primary">
+          <a href="index.html">Work</a>
+          <a href="archive.html">Archive</a>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </header>
+      <main class="page archive-layout">
+        <section class="archive-hero">
+          <a href="archive.html">&larr; Back to archive</a>
+          <h1 id="wip-page-title">Work in progress.</h1>
+          <div id="wip-gate">
+            <p>Enter the password to view work in progress.</p>
+            <form id="wip-form" class="wip-form">
+              <label for="wip-password">Password</label>
+              <input id="wip-password" name="password" type="password" autocomplete="current-password" aria-describedby="wip-error" required />
+              <p id="wip-error" class="wip-error" role="status" aria-live="polite"></p>
+              <button class="quiet-button" type="submit">Enter archive</button>
+            </form>
+            <noscript><p>Please enable JavaScript to enter this archive.</p></noscript>
+          </div>
+          <section id="wip-content" hidden aria-labelledby="wip-heading">
+            <div id="wip-index">
+              <h2 id="wip-heading" tabindex="-1">Studies, experiments, and unfinished things.</h2>
+              <a class="notebook-project" href="#running-to-do-list">
+                <div class="notebook-preview" aria-hidden="true"><span>running<br>to do list</span><span class="notebook-preview-note">a place for the unfinished.</span></div>
+                <span class="notebook-project-title">01. Running to do list <span aria-hidden="true">↗</span></span>
+                <span class="notebook-project-meta">Interactive · Work in progress</span>
+              </a>
+            </div>
+            <section id="running-to-do-list" class="notebook-view" hidden aria-labelledby="notebook-title">
+              <a class="notebook-back" href="#">&larr; All work in progress</a>
+              <div class="notebook-intro"><h2 id="notebook-title" tabindex="-1">Running to do list</h2><p>A place for the unfinished. Click a line and start typing.</p></div>
+              <div class="notebook-paper">
+                <div class="notebook-holes" aria-hidden="true"><i></i><i></i><i></i></div>
+                <div class="notebook-paper-header"><span>running to do list</span><time id="notebook-date"></time></div>
+                <label class="sr-only" for="notebook-writing">Your running to do list</label>
+                <textarea id="notebook-writing" class="notebook-writing" placeholder="One thing at a time…" aria-describedby="notebook-help notebook-save" spellcheck="true"></textarea>
+                <div class="notebook-paper-footer"><span>to be continued.</span><span>01</span></div>
+              </div>
+              <div class="notebook-status"><p id="notebook-help">Your own list, saved in this browser.</p><p id="notebook-save" role="status" aria-live="polite"></p></div>
+            </section>
+            <button class="quiet-button" id="wip-lock" type="button">Lock archive</button>
+          </section>
+        </section>
+      </main>
+      <footer class="site-footer"><span>Work in progress.</span><a href="archive.html">Back to archive</a></footer>
+    </div>
+    <script src="work-in-progress.js?v=2026-09-08-notebook"></script>
+    <script src="notebook.js?v=2026-09-08-notebook"></script>
+    <script src="script.js?v=2026-09-08-notebook"></script>
+  </body>
+</html>
