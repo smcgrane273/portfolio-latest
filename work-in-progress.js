@@ -11,6 +11,7 @@
     form.reset();
     error.textContent = "";
     password.removeAttribute("aria-invalid");
+    document.dispatchEvent(new Event("wip-locked"));
   };
   form.addEventListener("submit", (event) => {
     event.preventDefault();

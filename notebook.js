@@ -7,14 +7,18 @@
     writing.style.height = `${Math.max(500, writing.scrollHeight)}px`;
   };
   const route = () => {
-    const isNotebook = window.location.hash === "#running-to-do-list";
-    document.getElementById("wip-index").hidden = isNotebook;
-    document.getElementById("running-to-do-list").hidden = !isNotebook;
-    document.body.classList.toggle("notebook-open", isNotebook);
-    document.title = `sophie modigliani-mcgrane | ${isNotebook ? "Running to do list" : "Work in progress"}`;
-    if (!document.getElementById("wip-content").hidden) {
-      document.getElementById(isNotebook ? "notebook-title" : "wip-heading").focus();
-      if (isNotebook) resize();
+    const routes = { "running-to-do-list": "Running to do list", "city-that-never-sleeps": "City That Never Sleeps", "tech-a": "Tech A", "ramy-brook": "Ramy Brook" };
+    const requested = window.location.hash.slice(1);
+    const active = Object.hasOwn(routes, requested) ? requested : "";
+    const unlocked = !document.getElementById("wip-content").hidden;
+    document.getElementById("wip-index").hidden = Boolean(active);
+    Object.keys(routes).forEach(id => { document.getElementById(id).hidden = id !== active; });
+    document.body.classList.toggle("notebook-open", active === "running-to-do-list" && unlocked);
+    document.body.classList.toggle("wip-project-open", Boolean(active) && unlocked);
+    document.title = `sophie modigliani-mcgrane | ${unlocked && active ? routes[active] : "Work in progress"}`;
+    if (unlocked) {
+      document.getElementById(active === "running-to-do-list" ? "notebook-title" : active ? `${active}-title` : "wip-heading").focus();
+      if (active === "running-to-do-list") resize();
     }
   };
   try {
@@ -36,5 +40,6 @@
   window.addEventListener("hashchange", route);
   window.addEventListener("resize", resize);
   document.addEventListener("wip-unlocked", route);
+  document.addEventListener("wip-locked", route);
   route();
 })();

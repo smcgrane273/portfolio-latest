@@ -49,3 +49,13 @@
   .notebook-open .archive-hero { padding-left: 0; padding-right: 0; }
 }
 @media (prefers-reduced-motion: reduce) { .notebook-project:hover .notebook-preview { transform: none; } }
+
+.wip-project-view[hidden] { display: none !important; }
+.wip-project-card { display: grid; gap: 10px; max-width: 560px; margin: 36px 0; text-transform: none; }
+.wip-project-card img { width: 100%; height: auto; }
+.wip-project-view { text-transform: none; margin-bottom: 36px; }
+.wip-project-view > h2 { margin: 32px 0 20px; font-weight: 400; }
+.wip-project-view > p { margin-bottom: 28px; max-width: 680px; }
+.wip-project-view .page { padding-left: 0; padding-right: 0; }
+.wip-project-open #wip-page-title { display: none; }
+.wip-project-open .archive-hero { padding-top: 40px; }
